@@ -1,0 +1,63 @@
+<icecast> 
+  <limits> 
+    <clients>1000</clients> 
+    <sources>2</sources> 
+    <queue-size>524288</queue-size> 
+    <client-timeout>30</client-timeout> 
+    <header-timeout>15</header-timeout> 
+    <source-timeout>10</source-timeout> 
+    <burst-size>65536</burst-size> 
+  </limits> 
+  <authentication> 
+    <source-password>fuckoff</source-password> 
+    <relay-password>fuckoff</relay-password> 
+    <admin-user>icecast2</admin-user> 
+    <admin-password>fuckoff</admin-password> 
+  </authentication> 
+  <hostname>online.radiogrodno.by</hostname> 
+  <location>BY</location> 
+  <admin>radio</admin> 
+  <listen-socket> 
+    <port>8005</port> 
+  </listen-socket> 
+<fileserve>1</fileserve> 
+<mount> 
+  <mount-name>/stream</mount-name> 
+  <password>fuckoff</password> 
+  <hidden>0</hidden> 
+  <public>1</public> 
+  <charset>UTF-8</charset> 
+  <burst-size>131072</burst-size> 
+  <mp3-metadata-interval>8192</mp3-metadata-interval> 
+</mount> 
+    <relay>
+        <server>127.0.0.1</server>
+        <port>8000</port>
+        <mount>/live</mount>
+        <local-mount>/differe</local-mount>
+        <relay-shoutcast-metadata>0</relay-shoutcast-metadata>
+    </relay>
+   <paths>
+        <basedir>/usr/share/icecast</basedir>
+        <logdir>/var/log/icecast</logdir>
+        <webroot>/usr/share/icecast/web</webroot>
+        <adminroot>/usr/share/icecast/admin</adminroot>
+        <alias source="/" dest="/status.xsl"/>
+    </paths>
+
+  <logging> 
+    <accesslog>icecast_acces.log</accesslog> 
+    <errorlog>icecast_error.log</errorlog> 
+    <playlistlog>icecast_playlist.log</playlistlog> 
+    <loglevel>1</loglevel> 
+    <logsize>10000</logsize> 
+    <logarchive>1</logarchive> 
+  </logging>
+ <security>
+        <chroot>0</chroot>
+        <changeowner>
+            <user>ice</user>
+            <group>ice</group>
+        </changeowner>
+    </security>  
+</icecast>
